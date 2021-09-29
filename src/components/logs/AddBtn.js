@@ -13,14 +13,17 @@ const AddBtn = () => {
         <li>
           <a
             href="#tech-list-modal"
-            className="btn-floating green modal-trigger"
+            className="btn-floating green btn-large modal-trigger"
           >
             <i className="material-icons">person</i>
           </a>
         </li>
         <li>
-          <a href="#add-tech-modal" className="btn-floating red modal-trigger">
-            <i className="material-icons">person_add</i>
+          <a
+            href="#add-tech-modal"
+            className="btn-floating btn-large red modal-trigger"
+          >
+            <i className="material-icons">person add</i>
           </a>
         </li>
       </ul>
