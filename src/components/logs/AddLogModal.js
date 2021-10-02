@@ -59,9 +59,9 @@ const AddLogModal = ({ addLogs }) => {
               <option value="" disabled>
                 Select Technician
               </option>
-              <option value="John Doe">Sandeep Bisht</option>
-              <option value="John Doe">Parvati Devi</option>
-              <option value="John Doe">Kamal Bisht</option>
+              <option value="Sandeep Bisht">Sandeep Bisht</option>
+              <option value="Parvati Devi">Parvati Devi</option>
+              <option value="Kamal Bisht">Kamal Bisht</option>
             </select>
           </div>
         </div>
@@ -86,7 +86,7 @@ const AddLogModal = ({ addLogs }) => {
         <a
           href="#!"
           onClick={onSubmit}
-          className="moadal-close waves-effect waves-light btn blue"
+          className="modal-close waves-effect waves-light btn blue"
         >
           Enter
         </a>
