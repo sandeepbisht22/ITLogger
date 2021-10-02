@@ -1,15 +1,28 @@
 import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
-const AddTechModal = () => {
+import { connect } from "react-redux";
+import { PropTypes } from "prop-types";
+import { addTechs } from "../../actions/techActions";
+import AddLogModal from "./../logs/AddLogModal";
+
+const AddTechModal = ({ addTechs }) => {
   const [firstname, setFirstname] = useState("");
-  const [lastName, setLastname] = useState("");
+  const [lastname, setLastname] = useState("");
   const onSubmit = () => {
-    if (firstname === "" || lastName === "") {
+    if (firstname === "" || lastname === "") {
       M.toast({
         html: "Please enter a First and last name",
       });
     } else {
-      console.log(firstname, lastName);
+      console.log(firstname, lastname);
+      addTechs({
+        firstname,
+        lastname,
+      });
+
+      M.toast({
+        html: `${firstname} ${lastname} was added as a tech`,
+      });
       //clear field
       setFirstname("");
       setLastname("");
@@ -36,11 +49,11 @@ const AddTechModal = () => {
           <div className="input-field">
             <input
               type="text"
-              name="lastName"
-              value={lastName}
+              name="lastname"
+              value={lastname}
               onChange={(e) => setLastname(e.target.value)}
             />
-            <label htmlFor="lastName" className="active">
+            <label htmlFor="lastname" className="active">
               Last Name
             </label>
           </div>
@@ -50,7 +63,7 @@ const AddTechModal = () => {
         <a
           href="#!"
           onClick={onSubmit}
-          className="moadal-close waves-effect waves-light btn blue"
+          className="modal-close waves-effect waves-light btn blue"
         >
           Enter
         </a>
@@ -58,5 +71,7 @@ const AddTechModal = () => {
     </div>
   );
 };
-
-export default AddTechModal;
+AddLogModal.prototype = {
+  addTechs: PropTypes.func.isRequired,
+};
+export default connect(null, { addTechs })(AddTechModal);
